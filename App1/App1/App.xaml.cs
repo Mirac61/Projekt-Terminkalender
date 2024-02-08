@@ -1,14 +1,10 @@
-﻿using App1.Services;
-using App1.Views;
-using System;
+﻿using App1.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
 using System.IO;
-using Xamarin.Forms.Shapes;
- 
-
-
+using App1.Services;
+using System;
 
 namespace App1
 {
@@ -23,7 +19,7 @@ namespace App1
 
             DependencyService.Register<MockDataStore>();
 
-            string dbPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "database.db3");
+            dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "database.db3");
 
             // Überprüfen, ob die Datenbankdatei existiert
             if (!File.Exists(dbPath))
@@ -34,27 +30,26 @@ namespace App1
 
             Database = new SQLiteConnection(dbPath);
             Database.CreateTable<App1.Models.User.UserD>();
-            MainPage = new AppShell();
+
+            // Setze die MainPage auf die LoginPage
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()
         {
-
             try
             {
                 Console.WriteLine("OnStart wurde aufgerufen.");
 
-                Database = new SQLiteConnection(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "database.db3"));
+                Database = new SQLiteConnection(dbPath);
 
                 if (!File.Exists(dbPath))
                 {
-                    Database = new SQLiteConnection(dbPath);
                     Database.CreateTable<App1.Models.User.UserD>();
                     Console.WriteLine("Datenbank und Tabelle erstellt.");
                 }
                 else
                 {
-                    Database = new SQLiteConnection(dbPath);
                     Console.WriteLine("Datenbank bereits vorhanden.");
                 }
             }
@@ -62,11 +57,11 @@ namespace App1
             {
                 Console.WriteLine($"Fehler beim Erstellen/Öffnen der Datenbank: {ex}");
             }
-
         }
 
         protected override void OnSleep()
         {
+            Database?.Close();
         }
 
         protected override void OnResume()

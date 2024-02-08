@@ -54,12 +54,19 @@
                     <Entry Grid.Row="2" x:Name="Benutzername_Eingabe" Placeholder="Username" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Entry Grid.Row="3" x:Name="Passwort_Eingabe" Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Button Grid.Row="4" Text="Login" Clicked="LoginButton_Clicked" BackgroundColor="#1C375C" CornerRadius="20" />
-                    <Label Grid.Row="5" Text="Forget Password" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
-                    <Label Grid.Row="6" Text="Sign up here" HorizontalOptions="CenterAndExpand">
+                    <Label Grid.Row="5" x:Name="RegisterLabel" Text="Sign up here" HorizontalOptions="CenterAndExpand">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnSignUpTapped" />
                         </Label.GestureRecognizers>
                     </Label>
+                    <Label Grid.Row="6" x:Name="ForgotPasswordLabel" Text="Passwort vergessen?" HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    
+                    
+                    
 
 
                 </Grid>

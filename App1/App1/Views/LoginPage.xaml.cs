@@ -22,11 +22,18 @@ using App1.Models;
                 InitializeComponent();
                 this.BindingContext = new LoginViewModel();
                 var image = new Image { Source = "Scheduly.png" };
-
+                this.BindingContext = new LoginViewModel();
             }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            // Stelle sicher, dass der Registrierungslink beim Laden der Seite angezeigt wird
+            RegisterLabel.IsVisible = true;
+        }
 
-            public bool IsValidUser(string usernameOrEmail, string password)
+
+        public bool IsValidUser(string usernameOrEmail, string password)
             {
                 var existingUser = App.Database.Table<User.UserD>().FirstOrDefault(u =>
                     u.Username == usernameOrEmail || u.Email == usernameOrEmail);
@@ -39,50 +46,28 @@ using App1.Models;
                 return false;
             }
 
-
-            public void LoginButton_Clicked(object sender, EventArgs e)
+            public async void LoginButton_Clicked(object sender, EventArgs e)
             {
+
                 string usernameOrEmail = Benutzername_Eingabe.Text.Trim();
                 string password = Passwort_Eingabe.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(usernameOrEmail) || string.IsNullOrWhiteSpace(password))
                 {
-                    DisplayAlert("Fehler", "Benutzername oder E-Mail und Passwort dürfen nicht leer sein.", "OK");
+                    await DisplayAlert("Fehler", "Benutzername oder E-Mail und Passwort dürfen nicht leer sein.", "OK");
                     return;
                 }
 
                 if (IsValidUser(usernameOrEmail, password))
                 {
-                    Navigation.PushAsync(new AboutPage());
+                    // Zur MainPage (AppShell) navigieren, die die AboutPage enthält
+                    Application.Current.MainPage = new AppShell();
                 }
                 else
                 {
-                    DisplayAlert("Fehler", "Ungültige Anmeldeinformationen.", "OK");
+                    await DisplayAlert("Fehler", "Ungültige Anmeldeinformationen.", "OK");
                 }
             }
-
-    /*  public void RegisterButton_Clicked(object sender, EventArgs e)
-     {
-         string username = UsernameEntry.Text.Trim();
-         string password = PasswordEntry.Text.Trim();
-         string email = UsernameEntry.Text.Trim();
-
-         if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
-         {
-             DisplayAlert("Fehler", "Benutzername und Passwort dürfen nicht leer sein.", "OK");
-             return;
-         }
-
-        if (IsUsernameAvailable(username, email))
-         {
-             CreateUser(username, password, email);
-         }
-         else
-         {
-             DisplayAlert("Fehler", "Benutzername bereits vergeben.", "OK");
-         }*/
-
-
 
             public bool IsUsernameAvailable(string username, string email)
             {
@@ -94,45 +79,18 @@ using App1.Models;
                 return existingUser != null;
             }
 
-           /* public void CreateUser(string username, string password, string email)
-            {
-                try
-                {
-                    User.UserD newUser = new User.UserD
-                    {
-                        Username = username, 
-                        Password = password,
-                        Email = email
-
-                    };
-
-                
-                    int rowsAffected = App.Database.Insert(newUser);
-
-                    if (rowsAffected > 0)
-                    {
-                        // Erfolgreich eingefügt
-                        // Fügen Sie hier weitere Aktionen hinzu, falls erforderlich
-                    }
-                    else
-                    {
-                        // Einfügeoperation ist fehlgeschlagen
-                        // Hier können Sie Fehlerbehandlungslogik hinzufügen, z. B. eine Fehlermeldung anzeigen
-                        DisplayAlert("Fehler", "Die Registrierung ist fehlgeschlagen.", "OK");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Behandeln Sie Ausnahmen, die während der Einfügeoperation auftreten könnten
-                    Console.WriteLine($"Fehler beim Erstellen des Benutzers: {ex}");
-                    DisplayAlert("Fehler", $"Die Registrierung ist fehlgeschlagen: {ex.Message}", "OK"); // Hier können Sie Fehlerbehandlungslogik hinzufügen
-                }
-            }*/
+           
             public async void OnSignUpTapped(object sender, EventArgs e)
             {
                 await Navigation.PushAsync(new RegisterPage());
             }
-        }
+
+            public async void OnForgotPasswordTapped(object sender, EventArgs e)
+            {
+                await Navigation.PushAsync(new NewItemPage());
+            }
+
+    }
 
 
     }
