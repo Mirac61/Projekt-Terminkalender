@@ -64,10 +64,6 @@
                             <TapGestureRecognizer Tapped="OnForgotPasswordTapped" />
                         </Label.GestureRecognizers>
                     </Label>
-                    
-                    
-                    
-
 
                 </Grid>
             </Frame>

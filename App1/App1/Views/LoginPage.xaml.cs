@@ -90,7 +90,7 @@ using App1.Models;
                 await Navigation.PushAsync(new NewItemPage());
             }
 
-    }
+        }
 
 
     }
