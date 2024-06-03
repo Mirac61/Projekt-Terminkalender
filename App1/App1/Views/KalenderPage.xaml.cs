@@ -10,11 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace App1.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class KalenderPage : ContentPage
     {
-        public Page1()
+        public KalenderPage()
         {
-            InitializeComponent();
+            
         }
     }
 }

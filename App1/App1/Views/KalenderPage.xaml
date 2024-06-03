@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Kalender"
+             Title="Startseite"
+             IconImageSource="home.png"
+             BackgroundColor="#E3D7BD">
+
+    <ContentPage.Content BackgroundColor="Beige">
+        <StackLayout BackgroundColor="Beige">
+            
+            <Label Text="" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="00:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="00:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="01:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="01:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="02:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="02:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="03:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="03:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="04:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="04:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="05:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="05:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="06:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="06:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="07:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="07:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="08:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="08:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="09:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="09:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="10:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="10:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="11:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="11:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="12:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="12:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="13:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="13:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="14:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="14:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="15:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="15:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="16:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="16:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="17:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="17:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="18:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="18:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="19:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="19:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="20:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="20:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="21:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="21:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="22:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="22:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="23:00" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+            <Label Text="23:30" BackgroundColor="Black" TextColor="White" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
