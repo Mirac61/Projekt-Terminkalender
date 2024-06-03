@@ -34,18 +34,12 @@
             </Grid.RowDefinitions>
             <Image Grid.Row="0" Margin="0,20,0,20" Source="icon.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="80"></Image>
             
-            <Frame Grid.Row="1" Margin="30,70"  HasShadow="True"  CornerRadius="55" >
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20">
+            <Frame Grid.Row="1" Margin="30,20"  HasShadow="True"  CornerRadius="55" >
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="15" Padding="20">
                     
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        
                         
                     </Grid.RowDefinitions>
                     
