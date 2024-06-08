@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Noten Rechner"
+             BackgroundColor="#F5F5F5"
+             x:Class="App1.Views.NotenRechner">
+
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Noten Rechner"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,20"/>
+
+            <StackLayout x:Name="SubjectsStackLayout">
+                <!-- Hier wird dynamisch die Liste der Fächer hinzugefügt -->
+            </StackLayout>
+
+            <Button Text="Neues Fach hinzufügen"
+                    BackgroundColor="#6200EE"
+                    TextColor="White"
+                    CornerRadius="20"
+                    VerticalOptions="End"
+                    Clicked="OnAddSubjectClicked"/>
+
+            <Button Text="Gesamtnote berechnen"
+                    BackgroundColor="#03DAC6"
+                    TextColor="White"
+                    CornerRadius="20"
+                    VerticalOptions="End"
+                    Margin="0,10,0,0"
+                    Clicked="OnCalculateGradeClicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
