@@ -6,92 +6,64 @@ namespace App1.Views
 {
     public partial class NotenRechner : ContentPage
     {
-        private List<string> subjects;
+        private List<string> faecher;
 
         public NotenRechner()
         {
             InitializeComponent();
-            LoadSubjects();
+            LadeFaecher();
         }
 
-        private void LoadSubjects()
+        private void LadeFaecher()
         {
-            if (Application.Current.Properties.ContainsKey("Subjects"))
+            if (Application.Current.Properties.ContainsKey("Faecher"))
             {
-                subjects = Application.Current.Properties["Subjects"] as List<string>;
+                faecher = Application.Current.Properties["Faecher"] as List<string>;
             }
             else
             {
-                subjects = new List<string>();
+                faecher = new List<string>();
             }
 
-            foreach (var subject in subjects)
+            foreach (var fach in faecher)
             {
-                AddSubjectToView(subject);
+                FachZurAnsichtHinzufuegen(fach);
             }
         }
 
-        private void SaveSubjects()
+        private void SpeichereFaecher()
         {
-            Application.Current.Properties["Subjects"] = subjects;
+            Application.Current.Properties["Faecher"] = faecher;
             Application.Current.SavePropertiesAsync();
         }
 
-        private void OnAddSubjectClicked(object sender, EventArgs e)
+        private void OnAddFachClicked(object sender, EventArgs e)
         {
-            string newSubject = $"Fach {subjects.Count + 1}";
-            subjects.Add(newSubject);
-            AddSubjectToView(newSubject);
-            SaveSubjects();
+            string neuesFach = $"Fach {faecher.Count + 1}";
+            faecher.Add(neuesFach);
+            FachZurAnsichtHinzufuegen(neuesFach);
+            SpeichereFaecher();
         }
 
-        private void AddSubjectToView(string subjectName)
+        private void FachZurAnsichtHinzufuegen(string fachName)
         {
-            var subjectLayout = new StackLayout
+            var fachLabel = new Label
             {
-                Orientation = StackOrientation.Horizontal,
-                Margin = new Thickness(0, 10, 0, 0)
+                Text = fachName,
+                WidthRequest = 150,
+                GestureRecognizers =
+                {
+                    new TapGestureRecognizer
+                    {
+                        Command = new Command(() => Navigation.PushAsync(new FachDetail(fachName)))
+                    }
+                }
             };
 
-            var subjectLabel = new Label
-            {
-                Text = subjectName,
-                WidthRequest = 150
-            };
-
-            var subjectTapGestureRecognizer = new TapGestureRecognizer();
-            subjectTapGestureRecognizer.Tapped += async (s, args) =>
-            {
-                await Navigation.PushAsync(new FachDetail(subjectName));
-            };
-
-            subjectLayout.GestureRecognizers.Add(subjectTapGestureRecognizer);
-
-            var deleteButton = new Button
-            {
-                Text = "X",
-                BackgroundColor = Color.Red,
-                TextColor = Color.White,
-                CornerRadius = 15,
-                WidthRequest = 30,
-                HeightRequest = 30,
-                VerticalOptions = LayoutOptions.Center
-            };
-
-            deleteButton.Clicked += (s, args) =>
-            {
-                SubjectsStackLayout.Children.Remove(subjectLayout);
-                subjects.Remove(subjectName);
-                SaveSubjects();
-            };
-
-            subjectLayout.Children.Add(subjectLabel);
-            subjectLayout.Children.Add(deleteButton);
-
-            SubjectsStackLayout.Children.Add(subjectLayout);
+            FaecherStackLayout.Children.Add(fachLabel);
         }
 
-        private void OnCalculateGradeClicked(object sender, EventArgs e)
+        private void OnCalculateGesamtnoteClicked(object sender, EventArgs e)
         {
             // Logik zur Berechnung der Gesamtnote
         }
