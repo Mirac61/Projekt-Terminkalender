@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +9,13 @@ namespace App1.Views
     {
         public KalenderPage()
         {
-            
+            InitializeComponent(); // Initialisiert die XAML-Komponenten
+        }
+
+        public void NUllUhr_Clicked(object sender, EventArgs e)
+        {
+            // Hier können Sie die gewünschte Funktionalität einfügen
+            DisplayAlert("Button Clicked", "Der Button für 00:00 Uhr wurde geklickt", "OK");
         }
     }
 }
