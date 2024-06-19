@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.KalenderPage"
+             Title="Kalender">
+    <ContentPage.Content BackgroundColor="AliceBlue">
+        <StackLayout BackgroundColor="#C4DFE6">
+            <!-- Kalender Kopfzeile mit Wochentagen und Datum -->
+            <Grid ColumnSpacing="1" RowSpacing="1" BackgroundColor="#C4DFE6">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Wochentag Angabe -->
+                <Label Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" TextColor="Black" Text="Montag"/>
+                <Label Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" TextColor="Black" Text="Dienstag"/>
+                <Label Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" TextColor="Black" Text="Mittwoch"/>
+                <Label Grid.Row="0" Grid.Column="3" HorizontalOptions="Center" TextColor="Black" Text="Donnerstag"/>
+                <Label Grid.Row="0" Grid.Column="4" HorizontalOptions="Center" TextColor="Black" Text="Freitag"/>
+                <Label Grid.Row="0" Grid.Column="5" HorizontalOptions="Center" TextColor="Black" Text="Samstag"/>
+                <Label Grid.Row="0" Grid.Column="6" HorizontalOptions="Center" TextColor="Black" Text="Sonntag"/>
+
+                <!-- Datum unter Tag -->
+                <Label Grid.Row="1" Grid.Column="0" Text="17" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="18" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Row="1" Grid.Column="2" Text="19" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Row="1" Grid.Column="3" Text="20" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Row="1" Grid.Column="4" Text="21" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Row="1" Grid.Column="5" Text="22" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+                <Label Grid.Row="1" Grid.Column="6" Text="23" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+            </Grid>
+
+            <Label Text="21. Juni 2024" HorizontalOptions="Center" TextColor="Black"/>
+
+            <ScrollView>
+                <Grid ColumnSpacing="1" RowSpacing="1" HorizontalOptions="Center" BackgroundColor="#C4DFE6">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Text="00:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Button x:Name="NUllUhr" Clicked="NUllUhr_Clicked" BackgroundColor="#C4DFE6" TextColor="Black" Grid.Row="1"/>
+                    <Label Grid.Row="1" Text="00:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="2" Text="01:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="3" Text="01:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="4" Text="02:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="5" Text="02:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="6" Text="03:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="7" Text="03:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="8" Text="04:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="9" Text="04:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="10" Text="05:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="11" Text="05:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="12" Text="06:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="13" Text="06:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="14" Text="07:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="15" Text="07:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="16" Text="08:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="17" Text="08:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="18" Text="09:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="19" Text="09:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="20" Text="10:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="21" Text="10:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="22" Text="11:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="23" Text="11:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="24" Text="12:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="25" Text="12:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="26" Text="13:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="27" Text="13:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="28" Text="14:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="29" Text="14:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="30" Text="15:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="31" Text="15:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="32" Text="16:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="33" Text="16:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="34" Text="17:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="35" Text="17:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="36" Text="18:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="37" Text="18:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="38" Text="19:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="39" Text="19:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="40" Text="20:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="41" Text="20:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="42" Text="21:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="43" Text="21:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="44" Text="22:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="45" Text="22:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="46" Text="23:00" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                    <Label Grid.Row="47" Text="23:30" BackgroundColor="#C4DFE6" TextColor="Black" VerticalOptions="FillAndExpand"/>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
