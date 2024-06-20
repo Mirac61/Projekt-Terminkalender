@@ -17,11 +17,6 @@ namespace App1.Views
             this.BindingContext = new LoginViewModel();
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            RegisterLabel.IsVisible = true;
-        }
 
         // Überprüft, ob der Benutzer gültig ist
         private bool GueltigerBenutzer(string benutzernameOderEmail, string passwort)
