@@ -10,7 +10,7 @@
                 <RowDefinition Height="*"></RowDefinition>
 
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Margin="0,20,0,20" Source="xamarin_logo.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="80"></Image>
+            <Image Grid.Row="0" Margin="0,20,0,20" Source="icon.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="80"></Image>
             <Frame Grid.Row="1" Margin="20,30"    CornerRadius="55" >
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20">
 
@@ -26,8 +26,7 @@
 
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0"  Text="Welcome!" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Create your account" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1"  Text="Registrierung" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
                     <Entry Grid.Row="2" x:Name="Benutzername_Eingabe" Placeholder="Username" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Entry Grid.Row="3" x:Name="Passwort_Eingabe" Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
                     <Entry Grid.Row="4" x:Name="EMail_Eingabe" Placeholder="E-Mail" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>

@@ -32,23 +32,30 @@
                 <RowDefinition Height="*"></RowDefinition>
 
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Margin="0,20,0,20" Source="icon.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="80"></Image>
-            
-            <Frame Grid.Row="1" Margin="30,20"  HasShadow="True"  CornerRadius="55" >
+            <Image Grid.Row="0" Margin="0,20,0,20" Source="icon.png" Aspect="AspectFit" HeightRequest="180" WidthRequest="80"></Image> 
+
+            <Frame Grid.Row="1" Margin="30,60"  HasShadow="True"  CornerRadius="55" >
                 <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="10" Padding="20">
                     
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        
+
                     </Grid.RowDefinitions>
-                    
-                    <Label Grid.Row="0"  Text="Welcome Back!" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
-                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Login to your account" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
-                    <Entry Grid.Row="2" x:Name="Benutzername_Eingabe" Placeholder="Username" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
-                    <Entry Grid.Row="3" x:Name="Passwort_Eingabe" Placeholder="Password" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
-                    <Button Grid.Row="4" Text="Login" Clicked="LoginButton_Clicked" BackgroundColor="#1C375C" CornerRadius="20" />
-                    <Label Grid.Row="5" x:Name="RegisterLabel" Text="Sign up here" HorizontalOptions="Center">
+
+                    <Label Grid.Row="1"  Text="Anmeldung" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
+                    <Entry Grid.Row="2" x:Name="Benutzername_Eingabe" Placeholder="Benutzername oder Email" Margin="0,10,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="3  " x:Name="Passwort_Eingabe" Placeholder="Passwort" IsPassword="True" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Button Grid.Row="4" Text="Anmelden" Clicked="LoginButton_Clicked" BackgroundColor="#1C375C" CornerRadius="20" />
+                    <Label Grid.Row="5" x:Name="RegisterLabel" Text="Registrierung" HorizontalOptions="Center">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnSignUpTapped" />
                         </Label.GestureRecognizers>

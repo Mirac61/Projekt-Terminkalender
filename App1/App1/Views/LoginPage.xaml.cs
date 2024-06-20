@@ -1,96 +1,83 @@
 ﻿using App1.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
 using App1.Models;
+using System.Linq;
 
-
-    namespace App1.Views
+namespace App1.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoginPage : ContentPage
     {
-        [XamlCompilation(XamlCompilationOptions.Compile)]
-        public partial class LoginPage : ContentPage
+        public LoginPage()
         {
-
-
-            public LoginPage()
-            {
-                InitializeComponent();
-                this.BindingContext = new LoginViewModel();
-                var image = new Image { Source = "Scheduly.png" };
-                this.BindingContext = new LoginViewModel();
-            }
+            InitializeComponent();
+            this.BindingContext = new LoginViewModel();
+        }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            // Stelle sicher, dass der Registrierungslink beim Laden der Seite angezeigt wird
             RegisterLabel.IsVisible = true;
         }
 
+        // Überprüft, ob der Benutzer gültig ist
+        private bool GueltigerBenutzer(string benutzernameOderEmail, string passwort)
+        {
+            // Abrufen aller Benutzer aus der Datenbank in eine Liste
+            var benutzerListe = App.Database.Table<User.Benutzer>().ToList();
+            User.Benutzer bestehenderBenutzer = null;
 
-        public bool IsValidUser(string usernameOrEmail, string password)
+            // Durchlaufen der Liste der Benutzer
+            for (int i = 0; i < benutzerListe.Count; i++)
             {
-                var existingUser = App.Database.Table<User.UserD>().FirstOrDefault(u =>
-                    u.Username == usernameOrEmail || u.Email == usernameOrEmail);
-
-                if (existingUser != null && existingUser.Password == password)
+                // Überprüfen, ob der Benutzername oder die E-Mail-Adresse übereinstimmen
+                if (benutzerListe[i].Benutzername == benutzernameOderEmail || benutzerListe[i].Email == benutzernameOderEmail)
                 {
-                    return true;
-                }
-
-                return false;
-            }
-
-            public async void LoginButton_Clicked(object sender, EventArgs e)
-            {
-
-                string usernameOrEmail = Benutzername_Eingabe.Text.Trim();
-                string password = Passwort_Eingabe.Text.Trim();
-
-                if (string.IsNullOrWhiteSpace(usernameOrEmail) || string.IsNullOrWhiteSpace(password))
-                {
-                    await DisplayAlert("Fehler", "Benutzername oder E-Mail und Passwort dürfen nicht leer sein.", "OK");
-                    return;
-                }
-
-                if (IsValidUser(usernameOrEmail, password))
-                {
-                    // Zur MainPage (AppShell) navigieren, die die AboutPage enthält
-                    Application.Current.MainPage = new AppShell();
-                }
-                else
-                {
-                    await DisplayAlert("Fehler", "Ungültige Anmeldeinformationen.", "OK");
+                    // Wenn eine Übereinstimmung gefunden wurde, speichern wir den Benutzer und brechen die Schleife ab
+                    bestehenderBenutzer = benutzerListe[i];
+                    break;
                 }
             }
 
-            public bool IsUsernameAvailable(string username, string email)
-            {
-                var existingUser = App.Database.Table<User.UserD>().FirstOrDefault(u => u.Username == username);
-
-                var existingUser2 = App.Database.Table<User.UserD>().FirstOrDefault(u => u.Email == email);
-
-                // Wenn ein Benutzer mit diesem Benutzernamen gefunden wurde, geben Sie true zurück, andernfalls false
-                return existingUser != null;
-            }
-
-           
-            public async void OnSignUpTapped(object sender, EventArgs e)
-            {
-                await Navigation.PushAsync(new RegisterPage());
-            }
-
-            public async void OnForgotPasswordTapped(object sender, EventArgs e)
-            {
-                await Navigation.PushAsync(new NewItemPage());
-            }
-
+            // Überprüfen, ob der gefundene Benutzer das richtige Passwort hat
+            return bestehenderBenutzer != null && bestehenderBenutzer.Password == passwort;
         }
 
+        // Loginbutton-Klick Ereignis
+        private async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            string benutzernameOderEmail = Benutzername_Eingabe.Text.Trim();
+            string passwort = Passwort_Eingabe.Text.Trim();
 
+            if (string.IsNullOrWhiteSpace(benutzernameOderEmail) || string.IsNullOrWhiteSpace(passwort))
+            {
+                await DisplayAlert("Fehler", "Benutzername oder E-Mail und Passwort dürfen nicht leer sein.", "OK");
+                return;
+            }
+
+            if (GueltigerBenutzer(benutzernameOderEmail, passwort))
+            {
+                Application.Current.MainPage = new AppShell();
+            }
+            else
+            {
+                await DisplayAlert("Fehler", "Ungültige Anmeldeinformationen.", "OK");
+            }
+        }
+
+        // Weiterleitung zur Registrierungsseite
+        public async void OnSignUpTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+        }
+
+        // Weiterleitung zur Passwort-Wiederherstellungsseite
+        public async void OnForgotPasswordTapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewItemPage());
+        }
     }
+}

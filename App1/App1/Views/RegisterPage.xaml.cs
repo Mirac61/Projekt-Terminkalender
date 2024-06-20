@@ -1,14 +1,10 @@
 ﻿using App1.Models;
 using App1;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SQLite;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using App1.Views;
+using SQLite;
+using System.IO;
 
 namespace App1.Views
 {
@@ -20,18 +16,19 @@ namespace App1.Views
             InitializeComponent();
         }
 
+        // Klick Ereignis für den Registrierungsbutton - mithilfe ChatGPT
         private async void OnRegisterClicked(object sender, EventArgs e)
         {
-            string username = Benutzername_Eingabe.Text;
-            string password = Passwort_Eingabe.Text;
+            string benutzername = Benutzername_Eingabe.Text;
+            string passwort = Passwort_Eingabe.Text;
             string email = EMail_Eingabe.Text;
 
-            if (Registrierungsregeln(username, password, email))
+            if (RegistrierungsRegeln(benutzername, passwort, email))
             {
-                if (UserErstellen(username, password, email))
+                if (ErstelleBenutzer(benutzername, passwort, email))
                 {
                     await DisplayAlert("Erfolg", "Die Registrierung war erfolgreich.", "OK");
-                    await Navigation.PopAsync(); // Zurück zur LoginPage
+                    await Navigation.PopAsync();
                 }
                 else
                 {
@@ -44,44 +41,39 @@ namespace App1.Views
             }
         }
 
-
-        private bool Registrierungsregeln(string username, string password, string email)
+        // Überprüft die Registrierungsregeln
+        private bool RegistrierungsRegeln(string benutzername, string passwort, string email)
         {
-            return !string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password) && !string.IsNullOrWhiteSpace(email);
+            return !string.IsNullOrEmpty(benutzername) && !string.IsNullOrEmpty(passwort) && !string.IsNullOrEmpty(email);
         }
 
-        private bool UserErstellen(string username, string password, string email)
+        // Erstellt einen neuen Benutzer - mithilfe ChatGPT
+        private bool ErstelleBenutzer(string benutzername, string passwort, string email)
         {
             try
             {
-                User.UserD newUser = new User.UserD
+                User.Benutzer neuerBenutzer = new User.Benutzer
                 {
-                    Username = username,
-                    Password = password,
+                    Benutzername = benutzername,
+                    Password = passwort,
                     Email = email
                 };
 
-                int rowsAffected = App.Database.Insert(newUser);
+                int Zeilen = App.Database.Insert(neuerBenutzer);
 
-                if (rowsAffected > 0)
+                if (Zeilen <= 0)
                 {
-                    return true;
-                }
-                else
-                {
-                    DisplayAlert("Fehler", "Nix gut.", "OK");
                     return false;
                 }
+
+                User.InitialisiereDatenbank(benutzername);
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Fehler beim Erstellen des Benutzers: {ex}");
-                DisplayAlert("Fehler", $"Die Registrierung ist fehlgeschlagen: {ex.Message}", "OK");
                 return false;
             }
         }
-
-
-
     }
 }
