@@ -50,11 +50,11 @@ namespace App1.Views
         // Überprüft die Registrierungsregeln
         private bool RegistrierungsRegeln(string benutzername, string passwort, string email)
         {
-            // Überprüft, ob Benutzername, Passwort und E-Mail nicht leer oder null sind
+            // Überprüft, ob Benutzername, Passwort und E-Mail nicht leer oder null sind mithilfe ChatGPT
             return !string.IsNullOrEmpty(benutzername) && !string.IsNullOrEmpty(passwort) && !string.IsNullOrEmpty(email);
         }
 
-        // Erstellt einen neuen Benutzer
+        // Erstellt einen neuen Benutzer - mithilfe ChatGPT
         private bool ErstelleBenutzer(string benutzername, string passwort, string email)
         {
             try
@@ -75,9 +75,6 @@ namespace App1.Views
                 {
                     return false;
                 }
-
-                // Initialisiert weitere Daten für den Benutzer
-                User.InitialisiereDatenbank(benutzername);
                 return true;
             }
             catch (Exception ex)
