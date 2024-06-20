@@ -7,20 +7,22 @@ namespace App1.Views
 {
     public partial class NotenRechner : ContentPage
     {
-        // Liste zur Speicherung der Fächer und ihrer Noten
+        // Liste zur Speicherung der Fächer und Noten
         private List<Fach> faecherListe;
 
-        // Konstruktor, der die Seite initialisiert und die Liste der Fächer erstellt
+        
         public NotenRechner()
         {
-            InitializeComponent(); // Lädt die XAML-Komponenten und initialisiert die Seite.
-            faecherListe = new List<Fach>(); // Initialisiert die leere Liste der Fächer.
+            InitializeComponent(); 
+            
+            // Initialisiert die leere Liste der Fächer.
+            faecherListe = new List<Fach>(); 
         }
 
-        // Event-Handler für das Hinzufügen einer Note
+        // Event-Handler für das Hinzufügen einer Note mithilfe von ChatGPT
         private void NoteHinzufuegen(object sender, EventArgs e)
         {
-            // Versucht, die eingegebene Note in ein Double zu konvertieren
+            //Eingegebene Note in Double konvertieren
             if (!double.TryParse(noteEntry.Text, out double note) || string.IsNullOrWhiteSpace(fachNameEntry.Text))
             {
                 // Zeigt eine Fehlermeldung an, wenn die Eingabe ungültig ist
@@ -37,14 +39,19 @@ namespace App1.Views
             // Wenn das Fach nicht gefunden wird, wird es neu erstellt und zur Liste hinzugefügt
             if (fach == null)
             {
-                fach = new Fach(fachName); // Erstellt ein neues Fach mit dem eingegebenen Namen.
-                faecherListe.Add(fach); // Fügt das neue Fach zur Liste der Fächer hinzu.
-                // Fügt eine neue Zelle zur Anzeige des Fachs und der Note hinzu
+                // Erstellt ein neues Fach mit dem eingegebenen Namen.
+                fach = new Fach(fachName); 
+                
+                // Fügt das neue Fach zur Liste der Fächer hinzu.
+                faecherListe.Add(fach); 
+                
+                // Fügt eine neue Zelle zur Anzeige des Fachs und der Note hinzu 
                 faecherSection.Add(new TextCell { Text = fachName, Detail = $"Durchschnittsnote: {note:F2}", AutomationId = fachName });
             }
 
             // Fügt die neue Note zum Fach hinzu
             fach.Noten.Add(note);
+            
             // Aktualisiert die Anzeige für das Fach
             AktualisiereFach(fachName);
 
@@ -57,7 +64,12 @@ namespace App1.Views
         {
             // Sucht nach dem Fach in der Liste der Fächer
             Fach fach = GetFachByName(fachName);
-            if (fach == null) return; // Wenn das Fach nicht gefunden wird, beendet die Methode.
+
+            // Wenn das Fach nicht gefunden wird, beendet die Methode.
+            if (fach == null)
+            {
+                return; 
+            }
 
             // Berechnet den Durchschnitt der Noten für das Fach
             double durchschnitt = fach.BerechneDurchschnitt();
@@ -88,7 +100,7 @@ namespace App1.Views
         }
     }
 
-    // Klasse zur Darstellung eines Fachs mit einer Liste von Noten
+    // Klasse zur Darstellung eines Fachs mit einer Liste von Noten mithilfe von ChatGPT
     public class Fach
     {
         // Eigenschaften für den Namen des Fachs und die Liste der Noten
