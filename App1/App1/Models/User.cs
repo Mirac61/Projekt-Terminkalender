@@ -9,7 +9,7 @@ namespace App1.Models
     public class User
     {
         [Table("User")] 
-        public class UserD
+        public class Benutzer
         {
             [PrimaryKey, AutoIncrement]
             public int Id { get; set; }
