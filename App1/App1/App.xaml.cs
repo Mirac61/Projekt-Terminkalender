@@ -29,7 +29,7 @@ namespace App1
             }
 
             Database = new SQLiteConnection(dbPath);
-            Database.CreateTable<App1.Models.User.UserD>();
+            Database.CreateTable<App1.Models.User.Benutzer>();
 
             // Setze die MainPage auf die LoginPage
             MainPage = new NavigationPage(new LoginPage());
@@ -45,7 +45,7 @@ namespace App1
 
                 if (!File.Exists(dbPath))
                 {
-                    Database.CreateTable<App1.Models.User.UserD>();
+                    Database.CreateTable<App1.Models.User.Benutzer>();
                     Console.WriteLine("Datenbank und Tabelle erstellt.");
                 }
                 else
