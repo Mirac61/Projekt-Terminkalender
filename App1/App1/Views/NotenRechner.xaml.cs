@@ -77,8 +77,14 @@ namespace App1.Views
         // Methode zur Suche nach einem Fach in der Liste der Fächer
         private Fach GetFachByName(string fachName)
         {
-            // Sucht das Fach anhand des Namens in der Liste der Fächer und gibt es zurück
-            return faecherListe.FirstOrDefault(f => f.Name == fachName);
+            for (int i = 0; i < faecherListe.Count; i++)
+            {
+                if (faecherListe[i].Name == fachName)
+                {
+                    return faecherListe[i];
+                }
+            }
+            return null;
         }
     }
 
