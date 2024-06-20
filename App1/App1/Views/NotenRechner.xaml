@@ -3,15 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App1.Views.NotenRechner">
     <StackLayout Padding="10">
+        <!-- Eingabefeld für den Fachnamen -->
         <Entry x:Name="fachNameEntry" Placeholder="Fachname eingeben"/>
+        <!-- Eingabefeld für die Note -->
         <Entry x:Name="noteEntry" Placeholder="Note eingeben" Keyboard="Numeric"/>
+        <!-- Button zum Hinzufügen der Note -->
         <Button Text="Note hinzufügen" Clicked="NoteHinzufuegen"/>
-        <Button Text="Fach und Noten speichern" Clicked="FachUndNotenSpeichern"/>
+        <!-- Tabelle zur Anzeige der Fächer und Noten -->
         <TableView Intent="Form">
             <TableRoot>
+                <!-- Abschnitt zur Anzeige der eingegebenen Noten -->
                 <TableSection x:Name="notenSection" Title="Eingegebene Noten">
                     <!-- Die Noten werden dynamisch hinzugefügt -->
                 </TableSection>
+                <!-- Abschnitt zur Anzeige der eingetragenen Fächer und Noten -->
                 <TableSection x:Name="faecherSection" Title="Eingetragene Fächer und Noten">
                     <!-- Die Zeilen werden dynamisch hinzugefügt -->
                 </TableSection>
